@@ -25,7 +25,236 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-   
+    <script>
+
+      function calculateVat(price) {
+        return price * 0.19;
+      }
+
+      function calculatePrice(price, vat) {
+        return price + vat;
+      }
+
+      function calculateAll(value, value, value) {
+        return (value + value) * value;
+      }
+
+  //  const calculateAll = (value, value, value) => {       // exemplu de Arrow Function
+  //     return (value + value) * value;
+  //    } 
+
+      // const filterAge = (age) => {} aceasi chestie
+       function filterAge(age) {
+        if(age <= 18){
+          return 'Minor';
+        } else if (age > 18 && age < 25) {
+          return 'Ceva';
+        } else {
+          return 'Major';
+        } 
+        }
+      
+
+      // const filterAge = (age) => age <= 18 ? 'Minor' : 'Major' //acelas mod de a scrie functiunea filterAge() dar mai rapid
+
+      const  showPrice = (val) => {
+        switch(val) {
+          case 1:  // case '1' dupa case scriem conditia nu e doar 1 2 3 4 ca integer
+          return 'Number 1'
+          case 2:
+          return 'Number 2'
+          case 3:
+          return 'Number 3'
+          case 4:
+          return 'Number 4'
+        
+        default:
+        return 'NAN'
+        }
+      }
+
+
+
+      function myFunction() {
+
+        const prices = showPrice(2); //showPrice('1')
+        console.log('prices', prices)
+
+        let price1 = 100;
+        let price2 = 200;
+        let age1 = 25;
+        let age2 = 16;
+
+        const filter1 = filterAge(22);
+        const filter2 = filterAge(10);
+        const filter3 = filterAge(30);
+
+        console.log(filter1, filter2, filter3)
+
+
+
+        const vat1 = calculateVat(price1);
+        const vat2 = calculateVat(price2);
+        
+        const totalPrice = calculatePrice(price1, vat1)
+        console.log(totalPrice)
+
+        let value1 = 150;
+        let value2 = 300;
+        let value3 = 50;
+
+
+        
+        const result = calculateAll(value1, value2, value3)
+        console.log(result)
+
+        const dataArray1 = [
+          {
+            "user": 'Adi',
+            "id": 1,
+            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+          },
+          {
+            "user": 'Alin',
+            "id": 2,
+            "title": "qui est esse",
+            "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+          },
+          {
+            "user": 'Vlad',
+            "id": 3,
+            "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+            "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+          }
+        ]
+        
+        const newData = dataArray1.map(data => {  // data e itemul din array ul meu
+          if (data.user === 'Alin'){
+            return {
+              user: 'AlinRecruis',
+              id: 2,
+              title: 'ggg',
+              body : 'nnn'
+            }
+          }  
+            return {
+              user: data.user,
+              id: data.id,
+              title: data.title,
+              body: data.body
+            }
+            // sau return {...data}
+          })
+
+          function exercises() {
+            const data = {
+              name : 'ttt',
+              email: 'vvvv'
+            }
+
+            const first = 3;
+            const second = '3';
+            console.log(first == second, first === second) // e mai corect === decat == pentru ca == imi compara dar continutul si nu si tipul de variabila, deci === imi compara si continutul si tipul
+
+            const newArray1 = users.map((user, index) => { // cu index aflam indexxul fiecaruia element di array
+              if(user.id === 1) {
+                return {
+                  ...user,
+                  name: 'tttt'
+                }
+              }
+              return {
+                email : 'test@email.com', // schimba emailul
+                ...user,                  // apoi imi pune ca email valoare default
+                id: user.id,  
+                name: 'test'              // si in final name 'test' mi l returneaza
+              }
+            })
+          }
+
+          const userObj = {
+            id: 6,
+            name: 'text',
+            email: 'ttt'
+          }
+
+          const userObj2 = userObj;
+
+          userObj2.name = 'new text';  // in acest caz se schimba si userObj pentru ca au aceasi alocatie de memorie, sunt alte metode pentru a schimba userObjt2
+
+
+
+        console.log(newData, 'findAlin', findAlin)
+        
+        console.log(newData)
+
+        const newArray = dataArray1.filter(data => data.user === 'Alin') //pentru a gasi un item in obiect
+        console.log(newArray)
+
+        console.log(true || true) // || inseamna OR si iti ia prima valoare True care exista
+
+        let name; 
+        console.log(name || 'Sidona') // imi returneaza sidona pentru ca name è UNDEFINED. Chiar si daca name = '', name = 0
+
+        const varName = 'Sidona' || 'xxx' || 'ccc'
+        console.log(name.toString() || varName) // daca avem prea multe comparari le ptem separa si apoi comparam variabilele
+  
+        const email1 = 'ceva@ceva.ceva'
+        const email2 = ''
+
+        console.log(email1 && email2)  // daca toate elementele exista mi returneaza ultimul element
+      }
+    /*  let one = 10;
+        let two = 5;
+
+        const dataArray = ['Sidona', 'Madalina', 'Alin'] //exemplu de array
+
+        const dataFind = dataArray.find(el => el === 'Sidona')
+        const dataFilter = dataArray.find(el => el === 'Sidona')
+
+        console.log('position', dataArray[dataArray.length-1])
+
+        dataArray.pop(); // imi sterge ultimul element
+        const remove = dataArray1.pop(); //imi sterge ultimul element si imi returneaza ultimul element
+        
+        dataArray.splice(1, 0, 'Orice') //array.splice(index, inlocuesc sau sterg (1-2-3) sau adaug (0), si ce ajungem(putem las-a gol ca sa stergem))
+
+        const findAlin = dataArray1.find(data => data.user === 'Alin');
+
+        const findAlinIndex = dataArray.findIndex(data => data === "Alin"); // indexu doar la primul element di array cu acel nume
+        
+        .filter() pentru a gasi toate elementele din array.
+
+        dataArray.splice(findAlinIndex, 1);
+
+        const objectData = {name:'Alin', email: 'alnvs@gmail.com'}
+
+        console.log(objectData.name)
+
+        const dataBool = true;
+
+        const sumData = one + two;
+        const diffData = one - two;
+
+        console.log('sum',sumData, 'diff', diffData, '\nlen array', dataArray.length)
+
+
+        var name = 'Alin' ; // o pot accesa si suprascrie din orice positie
+        const email = 'alin.vasiliu94@gmail.com'; //variabila constanta
+
+        console.log('click button console', "\n",name, "\n",email, "\n", objectData)
+        alert('click button')
+
+        document.write("<button>Ceva</button>") // imi scrie in pagina de html dar suprascrie tot
+      }
+      function data() {
+          let title = 'ceva';
+          title = 'vvv'; // titlu l-am suprascris dar o pot face doar din interiorul functiei pentru ca e o varabila let
+          var name = 'alt nume';
+      } */
+    </script>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
