@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Produse</title>
+   <script>
+       const products = [
+         {
+            id: 1,
+            price: '2500.5',
+            name: 'cuptor'
+         },
+         {
+            id: 2,
+            price: '1900.5',
+            name: 'plita'
+         },
+         {
+            id: 3,
+            price: '700',
+            name: 'hota'
+         }
+      ];
+
+      // first exercize
+      
+      const tva = (price) => {
+         return price * 0.19;
+      }
+
+      const sumFunction = () => {
+         let priceSum = products.reduce((total, accumulator) => total + parseFloat(accumulator.price), 0) 
+         console.log(priceSum)
+      }
+ 
+      const calculateAll = () => {
+         const pricesArray = [];
+         const newProducts = products.map(data => {
+            pricesArray.push(data.price);
+         })
+         console.log(pricesArray)
+
+         let sum = 0;
+         pricesArray.forEach(element => {
+            sum += Number(element);
+         })
+         console.log("The sum is: ", sum)
+
+         const arrayTva = [];
+         pricesArray.forEach(element => {
+            valueTva = tva(element);
+            arrayTva.push(valueTva);
+         });
+         console.log("Tva values: ", arrayTva);
+      }
+
+      // second exercise
+
+      const removeObj = () => {
+         
+         const copyProducts = products.map(data => {
+            return {
+               ...data
+            }
+         })
+
+      // const deleteElement = products.filter(product => product.name !== 'plita') // copiez arrayul fara plita
+         const indexPlita = copyProducts.findIndex(data => data.name === 'plita')
+         console.log(indexPlita)
+
+         copyProducts.splice(indexPlita,1);
+         console.log(copyProducts);
+         
+         arrayTvaSplited = [];
+         sum = 0;
+         const pricesData = copyProducts.map(data => {
+            sum += Number(data.price);
+            arrayTvaSplited.push(tva(data.price));
+
+
+         })
+         console.log('The new sum is: ', sum)
+         console.log('New TVA values are: ', arrayTvaSplited)
+      }
+
+      // third exercise
+
+      const changePrice = () => {
+
+        /* const copyProducts = products.map(data => {  // 1st solution
+            if (data.id === 1) {
+               data.price = '2.5';
+            }
+            return {
+               ...data
+            }
+         })
+         console.log(copyProducts) */
+
+         const copyProducts = products.map(data => {
+            if (data.id === 1) {
+               return {
+                  ...data,
+                  price: '2.5'
+               }
+            }
+               return {
+                  ...data
+               }
+         })
+         console.log(copyProducts)
+      }
+
+      // forth exercise
+
+      const sort = () => {
+         const sortedArray = products.sort((a,b) => a.price-b.price)
+         console.log(sortedArray)
+      }
+
+      // fifth exercise
+
+      const alert = () => {
+         const alertArray = products.map(data => {
+            if (data.price > 2000) {
+               console.log(data,'Scump')
+            } else {
+               console.log(data, 'Ieftin')
+            }
+         })
+      }
+
+      // sixth exercise
+
+      /* const switchFunctionAlternative = () => {  // gaseste o metoda cu .map ca switchul sa caute in case fara a scrie toate casurile
+
+         const switchProducts = products.map(data => {
+
+         })
+
+         switch (name) {
+            case 'cuptor':
+            return console.log("products 1" , products[0].name)
+            case 'plita':
+            return console.log("products 2" , products[1].name)
+            case 'hota':
+            return console.log("products 3" , products[2].name)
+
+            default:
+            return console.log('NAN')
+         }
+      } */
+
+
+      const switchFunction = (name) => { 
+         switch (name) {
+            case 'cuptor':
+            return console.log("products 1" , products[0].name)
+            case 'plita':
+            return console.log("products 2" , products[1].name)
+            case 'hota':
+            return console.log("products 3" , products[2].name)
+
+            default:
+            return console.log('NAN')
+         }
+      }
+
+      const newSwitch = () => {
+         const inputName = document.getElementById('switchText').value
+         switchFunction(inputName)
+         document.getElementById('switchText').value = ''
+      }
+
+      // seventh exercise
+
+      const addProducts = () => {
+         const newProducts = [
+            {
+            id: 4,
+            price: '5500',
+            name: 'frigider'
+            },
+            {
+            id: 5,
+            price: '4000.5',
+            name: 'microunde'
+            }
+         ]
+
+         const pricesArray = [];
+         let sum = 0;
+         const copyProducts = products.map(data => {
+            return {...data}
+         })
+
+         for (let i=0; i<newProducts.length; i++) {
+            copyProducts.push(newProducts[i]);
+         }
+
+         copyProducts.forEach(element => {
+            sum += Number(element.price);
+            pricesArray.push(tva(element.price));
+         });
+
+         console.log(copyProducts)
+         console.log('The sum of the prices is: ', sum)
+         console.log('Tva for each product: ', pricesArray)
+      }
+
+   </script>
+</head>
+<body>
+   <button onclick="sumFunction()">Sum</button>
+   <button class="tvaBtn" onclick="calculateAll()">Show me the bill</button>
+   <button class="modifyObj" onclick="removeObj()">Remove Obj 2</button>
+   <button class="modifyPrc" onclick="changePrice()">Change </button>
+   <button class="sortBtn" onclick="sort()">Sort by Price</button>
+   <button class="alertBtn" onclick="alert()">Price Alert</button>
+   <button class="addBtn" onclick="addProducts()">Add 2 Products</button>
+   <form>
+      <label for="switchText"> Tell me what you are looking for?</label>
+      <input type="text" id="switchText" style="width: 70px;">
+   </form>
+   <button class="switchBtn" onclick="newSwitch()">Switch Button</button>
+</body>
+</html>
