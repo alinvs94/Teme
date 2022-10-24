@@ -1,0 +1,151 @@
+.header {
+font-size: 50px;
+display: flex;
+justify-content: center;
+background-color: black;
+color:lawngreen;
+}
+
+.firstLine {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.headItem {
+  grid-area: header;
+  justify-self: center;
+ }
+.item1 { grid-area: before; }
+.item2 { grid-area: after; }
+.item3 { 
+  grid-area: button;
+  justify-self: center;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+ }
+
+.item3:hover {
+  background-color: rgb(207, 145, 248);
+  color: rgb(0, 0, 0);
+}
+
+.grid-container1, .grid-container2, .grid-container3  {
+  display: grid;
+  grid-template-columns: 150px 80px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+   'header header'
+   'before after'
+   '. .'
+   'button button';  
+}
+
+.grid-container1 {
+  grid-template-columns: 100px 100px ;
+}
+
+.grid-container3 {
+  grid-template-columns: 180px 140px;
+}
+
+.secondLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid-container4 {
+  display: grid;
+  grid-template-columns: 380px 60px 400px;
+  grid-template-rows: auto;
+  grid-template-areas:
+  'header header header'
+  'nameArray button1 result1'
+  'nameArray button2 result2'
+  'nameArray button3 result3'
+  'nameArray button4 result4';
+}
+
+.itemArray {
+  grid-area: nameArray;
+  align-self: center;
+
+}
+.itemButton1 {grid-area: button1;}
+.itemButton2 {grid-area: button2;}
+.itemButton3 {grid-area: button3;}
+.itemButton4 {grid-area: button4;}
+
+.itemButton1, .itemButton2, .itemButton3, .itemButton4 {
+  width: 55px;
+  height: 18px;
+  margin: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: all 0.4s;
+}
+
+.itemButton1:hover, .itemButton2:hover, .itemButton3:hover, .itemButton4:hover {
+  background-color: rgb(207, 145, 248);
+  color: rgb(0, 0, 0);
+}
+
+.itemResult1 {grid-area: result1;}
+.itemResult2 {grid-area: result2;}
+.itemResult3 {
+  grid-area: result3;
+align-items: center;
+}
+.itemResult4 {grid-area: result4;}
+
+.itemResult1, .itemResult2, .itemResult3, .itemResult4 {
+  justify-self: center;
+}
+
+.container {
+  display: grid;
+  margin-top: 20px;
+  align-items: center;
+  grid-template-columns: 500px 20px 200px;
+  grid-template-areas: 
+  'obj objBtn finalObj';
+}
+
+pre {
+  font-size: 15px;
+  flex-grow: 0;
+}
+
+.obj {grid-area: obj;}
+
+.objBtn {
+  grid-area: objBtn;
+  height: 40px;
+  width: 60px;
+  justify-self: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 8px;
+}
+
+.objBtn:hover {
+  background-color: rgb(207, 145, 248);
+  color: rgb(0, 0, 0);
+  height: 60px;
+  width: 80px;
+  rotate: 360deg;
+}
+
+.finalObj {
+  grid-area: finalObj;
+  width: 200px;
+  
+}

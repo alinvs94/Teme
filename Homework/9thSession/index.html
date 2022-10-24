@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="index.js"></script>
+  <link rel="stylesheet" href="index.css">
+   <title>Array stuff</title>
+</head>
+<body>
+   <header class="header">Get those arrays working</header>
+   <div class="firstLine">
+      <div class="grid-container1">
+            <h2 class="headItem">Reverse the order of the elements</h2>
+            <h3 class="item1">x = [a,t,s]</h3>
+            <h3 class="item2" id="1st"></h3>
+            <button class="item3" onclick="sortFunction()" style="width: 60px;">1st Ex</button>
+      </div>
+      <div class="grid-container2">
+         <h2 class="headItem">Delete double numbers</h2>
+         <h3 class="item1">x = [1,2,3,1,2]</h3>
+         <h3 class="item2" id="2nd"></h3>
+         <button class="item3" onclick="deleteDoubles()" style="width: 60px;">2nd Ex</button>
+      </div> 
+      <div class="grid-container3">
+         <h2 class="headItem">Show Min and Max in the Array</h2>
+         <h3 class="item1">x = [28,39,44,26,11]</h3>
+         <h3 class="item2" id="3rd"></h3>
+         <button class="item3" onclick="minMax()" style="width: 60px;">3rd Ex</button>
+      </div>
+   </div>
+   <div class="secondLine">
+      <div class="grid-container4">
+         <h2 class="headItem">Play with the array</h2>
+         <h3 class="itemArray">users = ["Adi", "Andrei", "Maria", "Ioana"]</h3>
+         <button class="itemButton1" onclick="removeName()">4th-1</button>
+         <button class="itemButton2" onclick="addName()">4th-2</button>
+         <button class="itemButton3" onclick="copyArray()">4th-3</button>
+         <button class="itemButton4" onclick="changeName()">4th-4</button>
+         <h3 class="itemResult1" id="4th-1"></h3>
+         <h3 class="itemResult2" id="4th-2"></h3>
+         <h3 class="itemResult3" id="4th-3"></h3>
+         <h3 class="itemResult4" id="4th-4"></h3>
+      </div>
+   </div>
+   <div class="thirdLine">
+      <header class="header">...now get those objects working</header>
+         <div class="container">
+            <pre class="obj">
+   let programming = {
+      languages: ["JavaScript", "Python", "Ruby"],
+      isChallenging: true,
+      isRewarding: true,
+      difficulty: 8,
+   }
+            </pre>
+            <button class="objBtn" onclick="addLang()">obj</button>
+            <pre class="finalObj" id="objLine"></pre>
+         </div>
+   </div>
+   <div class="forthLine">
+      <header class="header">...and finally some ifs</header>
+      <div class="grid-container5">
+         <div class="firstIf">
+            <form>
+               <label for="oddEven">Insert here your number</label>
+               <input type="number" id="oddEven" style="width: 60px;">
+            </form>
+            <button class="oddEvenBtn" onclick="oddEvenF()">Submit number</button>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
