@@ -171,18 +171,10 @@ const orders =[
 const totalBill = () => {
   const copyOrders = orders.map(data => {
     
-   const newProduct = data.products.map(product => {
-    return {
-      ...product,
-      title: 'test'
-    }
-    })
-    console.log('order',newProduct);
     const sumBill = data.products.reduce((total,accumulator) => total + accumulator.total ,0);
     return {
       ...data,
       total: sumBill,
-      products: newProduct
     }
   })
   const totalSum = copyOrders.reduce((a,b) => a + b.total, 0)
