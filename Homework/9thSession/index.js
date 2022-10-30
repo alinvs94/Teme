@@ -118,5 +118,20 @@ const funNumber = (number1, number2) => {
       return number1 + ' = ' + number2;
    }
 }
+const funNumberF = (number1, number2) => {
+console.log('Results:', funNumber(2,8), funNumber(9,8), funNumber(8,8))
+}
 
-console.log('funNUmber', funNumber(2,8), funNumber(9,8), funNumber(8,8))
+const tFun = (side1, side2, side3) => {
+   if (side1 === side2 && side1 === side3 && side2 === side3) {
+      return 'Triangle equilacterium\n';
+   } else if (side1 === side2 || side1 === side3 || side2 === side3) {
+      return 'Triangle Isosceles\n';
+   } else if (side1 !== side2 && side1 !== side3 && side2 !== side3) {
+      return 'Normal Triangle\n';
+   }
+} 
+
+const tFunB = () => {
+console.log('Results:\n', tFun(1,1,1), tFun(1,2,2), tFun(1,2,3))
+}

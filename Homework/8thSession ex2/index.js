@@ -178,39 +178,47 @@ const totalBill = () => {
     }
   })
   const totalSum = copyOrders.reduce((a,b) => a + b.total, 0)
-  console.log('copyOrders',copyOrders, totalSum);
+  console.log('Sum bill is:', totalSum, 'And new array is:', copyOrders);
 };
 
-// 2 - sa se adauge pe primul nivel numarul de produse din cart 
+// 2/3 - sa se adauge pe primul nivel numarul de produse din cart 
 const cartProducts = () => {
   const copyOrders2 = orders.map(data => {
     return data
   })
   const totalProducts = orders.reduce((previousProd, currentProd) => previousProd + currentProd.totalQuantity,0);
-const objProducts = {'Products in cart':totalProducts};
+  const objProducts = {'Products in cart':totalProducts};
   copyOrders2.splice(0, 0, objProducts);
-  console.log(copyOrders2);
+  console.log(copyOrders2,);
 };
-
-// 3 - sa se afiseze total cantitate la primul nivel (se iau toate cantitatile si se aduna)
 
 // 4 - sa se afiseze totalul discount - la fel ca mai sus dar cu discount
 
 const discountedBill = () => {
-  let objId = 1;
+ /* let objId = 1;
   const copyOrders3 = orders.map(data => {
     if (data.id === objId) {
       const discountBill = data.products.reduce((total,accumulator) => total + accumulator.discountedPrice ,0);
       console.log('Discounted Bill n.'+ objId, discountBill);
     }
     objId ++;
+  }) */
+
+  const copyOrders3 = orders.map(data => {
+    const sumDiscount = data.products.reduce((accumulator, value) => accumulator + value.discountedPrice, 0)
+    return {
+      ...data,
+      discountedPrice: sumDiscount
+    }
   })
+  const totalSumDiscount = copyOrders3.reduce((accumulator, value) => accumulator + value.discountedTotal, 0)
+  console.log('New array:', copyOrders3,'\nTotal discount is:', totalSumDiscount)
 };
 
 // 5 - se modifica factura cu id-ul 2 - se sterge produsul cu id 16 si se reface factura cu cerintele de mai sus
 
 const modifyObj = () => {
-  const idIndex = orders.findIndex(index => index.id === 2)
+ /* const idIndex = orders.findIndex(index => index.id === 2)
   const copyProducts = orders.map(data => {
     if (data.id === 2) {
       const productIndex = data.products.findIndex(innerData => innerData.id === 16);
@@ -221,15 +229,35 @@ const modifyObj = () => {
       data.totalQuantity = data.products.reduce((previousValue,currentValue) => previousValue + currentValue.quantity, 0);
     }
     return {...data}
+  }) */  // aici se lucreaza pe aceasi alocarea de memorie al arrayului orders, trebue sa schimbam doar copyProducts 
+
+  const copyProducts = orders.map(data => {
+    if (data.id === 2) {
+      const deleteProduct = data.products.filter(product => product.id !== 16)
+      const newTotalSum = deleteProduct.reduce((a,b) => a + b.total, 0)
+      const newTotalDiscount = deleteProduct.reduce((a,b) => a + b.discountedPrice, 0)
+      return {
+        ...data,
+        products: deleteProduct,
+        total: newTotalSum,
+        discountedTotal: newTotalDiscount
+      }
+    }
+    return {
+      ...data
+    }
   })
 
-  console.log('We changed bill n. 2:',copyProducts[idIndex]);
+  const totalSum = copyProducts.reduce((a,b) => a + b.total, 0)
+  const totalDiscount = copyProducts.reduce((a,b) => a + b.discountedTotal, 0)
+
+  console.log('We changed bill n. 2:',copyProducts,'\n..so total sum is:', totalSum,'...and total discount is:', totalDiscount);
 };
 
 // 6- se modifica pretul si cantitatea la factura cu nr 3 si produs id 90 si la fel se reface factura
 
 const modifyObj2 = () => {
-  const copyProducts1 = orders.map(data => {
+/*  const copyProducts1 = orders.map(data => {
     if (data.id === 3) {
       data.products.map(innerData => {
         if (innerData.id === 90) {
@@ -245,6 +273,41 @@ const modifyObj2 = () => {
     data.discountedTotal = data.products.reduce((previousValue,currentValue) => previousValue + currentValue.discountedPrice, 0);
     }
     return data;
+  }) */
+
+  const copyProducts1 = orders.map(data => {
+    if (data.id === 3) {
+      const newProducts1 = data.products.map(product => {
+        if (product.id === 90) {
+          return {
+            ...product,
+            price: 200,
+            quantity: 10,
+            total: 200 * 10,
+            discountedPrice: parseInt((2000-(2000*product.discountPercentage/100)))
+          }
+        }
+        return {
+          ...product
+        }
+      })
+      const sum = newProducts1.reduce((a,b) => a + b.total,0)
+      const discount = newProducts1.reduce((a,b) => a + b.discountedPrice,0)
+
+      return {
+        ...data,
+        products: newProducts1,
+        total: sum,
+        discountedTotal: discount
+      }
+    }
+    return {
+      ...data
+    }
   })
-  console.log('Modifying product n.90 we have:', copyProducts1[2])
+
+  const totalSum = copyProducts1.reduce((a,b) => a + b.total, 0)
+  const totalDiscount = copyProducts1.reduce((a,b) => a + b.discountedTotal, 0)
+
+  console.log('Modifying product n.90 we have:', copyProducts1,'\n..so now total sum is:', totalSum,'...and total discount is:', totalDiscount);
 };
