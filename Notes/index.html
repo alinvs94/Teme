@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- este necesar pentru vechile browsere -->
+<html lang="en">
+<head>
+   <script src="javascript.js" type="text/javascript"></script>
+   
+   <meta charset="UTF-8"> <!-- cu <meta> transmitem ceva informatii browserului care nu o sa ajunga la utilizator si contin informatii perechi key value -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- atributul content este cheia si continutul valoarea -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- tagul meta se foloseste pe partea de optimizare a siteul nostru (SEO) si pe partea de responsive -->
+
+   <!-- tagul <link> se foloseste pentru stilizare, atasam librarii, fisiere esterne, fonturi sau iconuri -->
+
+   <title>Notes</title>
+   <link rel="stylesheet" href="style.css"> <!--Daca punem linkul cu fisier extern aici prima il citeste si apoi suprascrie tot ce este in <style>-->
+   <style>
+
+      #myId {
+         background-color: blue; /* fara style in-line albastru o sa fie culuarea pentru ca css citeste de jos in sus */
+      }
+
+      .myClass {
+         background-color: yellow /* putem scrie '!important' ca sa-i dam specificitatea mai mare dar nu e consiliat si nici styling in-line*/;
+      }
+
+      /* :hover {} pseudo clasa */
+
+      div {
+         background-color: pink;
+      }
+
+      * { /* selector universal si se aplica pe toate elementele in parte din fisier */ 
+         background-color: aqua;
+      }
+      /* Inafara de specificitatea bazata pe line putem spune ca ordinea de specificitate este: "* < elementele < class sau pesudo class < id" */
+   </style>
+   <!-- <link rel="stylesheet" href="style.css"> Daca, in schimb, punem linkul cu fisier extern aici el o sa suprascrie tot ce e scris mai sus avand aceasi specificitate-->
+</head>
+<body>
+   <div class="myClass" id="myId" style="background-color: red;"></div>  <!-- specificitatea mai mare aici o are style din div pentru ca codu in-line deci backgroud-color = red -->
+   <!-- tagurile specifice trebuesc folosite cat mai des si difera intere ele doar in pre-setari (padding margin font font size)-->
+   <!-- div ul ocupa mereu tot randul, e de tip block deci cand schimbam width sau height e doar aparent pentru ca fizic ocupa in continuare tot randul-->
+</body>
+</html>

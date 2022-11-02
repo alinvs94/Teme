@@ -1,0 +1,25 @@
+/* tipuri de display: flex grid in-line block..
+in-line: pune toate elementele in linie;
+block: toate elementele pe nivele separate.
+*/
+
+/* pentru fiecare browser va trebui sa normalizam stailul deci ne va trebui doua fisiere */
+
+/* viewport se refera la ecranul disponibil pentru site */
+
+/* tagurile semantice pe langa afisaj mai transmit browserului anumite informatii
+   ad ex. <blod> si <strong> imi afiseaza textul ingrosat dar <strong> transmite si ca informatia
+   continuta ii importanta. Asta se foloseste pe partea de SEO pentru ca transmiti mai multe detalii 
+   despre contentul care il ai in pagina (pentru o mai buna afisare sau pentru calculele care si le face
+   algoritmul in spate) si pe de alta parte pentru ACCESIBILITATE. Adica se refera la acele screen reeder 
+   sau adaptari ale siturilor care sunt facute pentru persoane cu dizabilitati. Vorbim ad ex
+   de aplicatiile de domeniu medical sau de stiri.
+*/
+
+/* pentru display ul in-line nu se aplica height si width
+   pentru a le aplica si sa mentinem proprietatea de in-line folosim inline-block
+   cu display none ascunde complet elementul pe pagina (il scoate din flow)
+   pentru a ascunde elementul folosim visibility: hidden, dar isi pastreaza pozitia 
+*/
+
+/* cand apasam show passw pe un site, practic ne schimba type ul de input de la password la text*/
