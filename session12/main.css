@@ -1,0 +1,146 @@
+/* trebuesc folosite doar proprietatile strict necesare fara sa scriem ceva in plus ca sar putea
+ sa intre in conflict intre ele si apoi sa nu intelegem de ce nu merge styling ul */
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin: 10px;
+}
+
+/* display block se suprapun marginile si este o 
+proprietate cu care decidem sa se suprapuna sau nu */
+
+.inline {
+  display: inline;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.smallBox {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+}
+
+/* e mai specific decat .box deci il suprascrie
+pentru ca specificitatea nu se limita doar la clase id uri taguri
+sau selectoare dar inseama si o structura mult mai specifica */
+.flexContainer .box {
+  /* aici ii dau comanda sa se uite in flex container si in el sa imi caute elementul box*/
+  background-color: aqua;
+}
+
+.flexContainer {
+  display: flex;
+  border: 5px solid black;
+  padding: 5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /*viewport height*/
+  text-align: center;
+  /*color: white;*/
+}
+
+main {
+  height: 100%;
+  display: flex;
+  /* default este row */
+  flex-direction: row;
+}
+
+header {
+  background-color: red;
+}
+
+nav {
+  background-color: green;
+  flex: 2;
+}
+
+/* cu proprietatea flex practic imi imparte in cate parti vreau spatiul de lucru
+dar e si foarte responsive, adica se deformeaza dupa cum schimbam fereastra browserului */
+arcticle {
+  background-color: purple;
+  flex: 8;
+}
+
+aside {
+  background-color: blue;
+  flex: 2;
+}
+
+footer {
+  background-color: orange;
+}
+
+/* pentru a pune un element deasupra altuia; dai z-index unul la elementul important
+pentru ca default este 0 (se poate pune orice valoare la z-index, si '-1' se poate pune pentru al afisa in spate) */
+.second {
+  z-index: 1; /* se aplica doar daca position e definit si e divers de ala default care este 'static' */
+}
+
+/* cand position e stati nu se aplica top bottom right left si z-index  */
+
+/* cand elementele sunt legate se refera la elemenutl pos di clasele box si are acelas specificity ca
+.flexContainer .box deci specificitatea se refera la cate clase folosim ca sa definim elementul */
+.box.pos {
+  background-color: red;
+  position: relative; /* cand folosim relative ne muta elementul fata de positia initiala si plus nu atinge pe celelalte elemente */
+}
+
+/* intre pozitiile top bottom left right, top si left au propritate daca dam comenzi contradictorii */
+
+/* cu position: absolute muta elementul pe primul element in parinte sau parinte pozitionat daca nu se raporteasa la viweport */
+
+/* position: fixed se raporteaza la viewport, adica cu top si left  = 0 il pune in coltul stang
+si cand dam scroll elemenul ramane fix in pozitia plasata  */
+
+/* daca un element are position relative, atunci celelalte elemente tin cont de pozitia lui
+dar cu position fix si absolute elementule nu mai tin cont si se muta in locul lui*/
+
+/* position: sticky oscileaza intre relative si dixed in functie de pozitia scrolului */
+
+.secondContainer {
+  border: 1px solid blue; /* border: pixel de grosime - linie continua sau punctata etc. - si color */
+  padding: 20px; /* padding e spatiere interioara si margin e exterioara */
+}
+
+.thirdContainer {
+  border: 1px solid purple;
+  padding: 20px;
+  display: flex;
+}
+
+/* cand lucram cu viewport (vh vw) ne referam la percentajul ecranului diponibil */
+/* procentele se raporteaza la marimea parintelui */
+/* fontul din pagina trebue sa fie rem si nu pixeli */
+
+.simpleContainer {
+  margin-top: 10px;
+  width: 65vw; /* viewport width*/
+  height: 30vh;
+  border: 2px solid black;
+  text-align: center;
+  overflow: auto; /* overflow = cat continut da pe dinafara contenitorului si ce sa fac cu el auto pune scroll,
+  hidden: ascunde ce iese pe afara, inherit e default, overlay: pune scroll la fel
+  scroll: pune scroll pe ambele axe  */
+  box-sizing: border-box; /* face in asa fel incat daca modific paddingul si borderul la containerului unui text,
+  acesta se va adapta fara a mari containerul initial */
+}
+
+/* search media query, practic imi suprascrie comanda scrisa mai sus cand sunt sub 600px si pusa mereu la final de fisier! */
+@media only screen and (max-width: 600px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+input {
+  padding: 10px;
+}
