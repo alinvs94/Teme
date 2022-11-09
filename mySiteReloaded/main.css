@@ -1,0 +1,15 @@
+.firstBanner {
+  height: 5vh;
+  width: 100vw;
+  background-color: black;
+}
+
+.secondBanner {
+  height: 5.34vh;
+  width: 100vw;
+  border: solid 2px black;
+}
+
+.imgDot {
+  height: 4.5vh;
+}
