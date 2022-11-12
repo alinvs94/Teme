@@ -1,27 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-   <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-   <link rel="stylesheet" href="main.css">
-   <title>WellnessWelcome</title>
-</head>
-<body>
-
-   <div class="firstBanner d-flex justify-content-center align-items-center">
-      <div class="textBanner d-flex">
-         <p class="text-light mx-1 my-1">You are welcome</p>
-         <p class="text-danger mx-1 my-1">Donate me some money plz</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.css"
+    />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>WellnessWelcome</title>
+  </head>
+  <body>
+    <div class="firstBanner d-flex justify-content-center align-items-center">
+      <div class="textBanner d-flex justify-content-center align-items-center">
+        <p class="text-light mx-1 my-1 d-none d-lg-block">You are welcome<p class="text-danger mx-1 my-1 d-none d-lg-block">
+        Donate me some money, I need help!
+        </p></p>
+        <button
+          type="button"
+          class="btn btnDonate btn-danger btn-sm mx-2 my-2 p-2"
+          data-bs-toggle="modal" 
+          data-bs-target="#donateModal"
+        >
+          Donate!
+        </button>
       </div>
-      <button type="button" class="btn btn-danger btn-sm mx-2 my-2 p-2">Donate!</button>
-      <img class="imgDot position-absolute end-0 mx-1" src="images/whiteDot.png" alt="whiteDot">
-   </div>
-   <div class="secondBanner d-flex justify-content-center align-items-center">
-      <img class="imgDot position-absolute start-0 mx-2" src="images/blackDot.png" alt="blackDot">
-      <p class="position-absolute m-2">Choose your wellness</p>
-   </div>
-</body>
+
+      <img
+        class="imgDot position-absolute end-0 mx-3"
+        src="images/whiteDot.png"
+        alt="whiteDot"
+      />
+
+      <!-- Modal -->
+      <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="donateModalLabel">One more step!</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Great, give me some of your incomes!
+            </div>
+            <div class="mb-3 mx-3">
+              <label for="recipient-name" class="col-form-label">How much:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success">Send money</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="navbarSection">
+      <nav class="navbar myNavbar position-relative navbar-expand-lg bg-white">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <img class="imgDot" src="images/blackDot.png" alt="blackDot"/>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Advices
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Diet</a></li>
+                  <li><a class="dropdown-item" href="#">Yoga</a></li>
+                  <li><a class="dropdown-item" href="#">Lifestyle</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Blog</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <div class="pageTitle mt-2 d-none">Choose your wellness</div>
+        
+                <button class="btn btnCart position-relative mx-4"><i class="bi bi-bag"></i><span class="badgeBtn position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">7</span></button>
+
+                <div class="dropdown-center">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Log-In
+                  </a>
+                  <ul class="loginDropdown dropdown-menu dropdown-menu-end dropdown-menu-light p-3">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 16em;">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                      <button type="submit" class="btn btnSubmit" id="liveToastBtn">Submit</button>
+
+                    </form>
+                  </ul>
+                </div>
+          </div>
+        </div>
+      </nav>
+
+      
+    </section>
+
+    <section class="pageContainer">
+      <button type="button" class="btn btn-primary mt-4" id="liveToastBtn">Show live toast</button>
+
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-muted">11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
+

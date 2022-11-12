@@ -1,15 +1,111 @@
 .firstBanner {
-  height: 5vh;
+  height: 4em;
   width: 100vw;
   background-color: black;
 }
 
-.secondBanner {
-  height: 5.34vh;
-  width: 100vw;
-  border: solid 2px black;
+
+.btnDonate {
+  align-self: center;
+}
+
+.btnDonate:active {
+ background-color: rgb(15, 186, 202)!important;
+ border-color: rgb(15, 186, 202)!important;
+}
+
+.navbarSection {
+  height: 3em;
+}
+
+.pageTitle {
+  font-family: fantasy;
+  font-size: 2.5em;
 }
 
 .imgDot {
-  height: 4.5vh;
+  height: 3.5em;
+}
+
+.myNavbar {
+  border: 2px solid black;
+}
+
+.searchBtn {
+  color: white;
+  background-color: black;
+  transition: all 0.2s ease-in;
+}
+
+.searchBtn:hover {
+  color: black;
+  background-color: white;
+}
+
+.pageTitle {
+  position: absolute;
+  left: 40%;
+}
+
+.btnCart {
+  font-size: 1.6em;
+} 
+
+.btnCart:hover {
+  color: rgb(15, 186, 202);
+}
+
+.badgeBtn {
+  font-size: 0.6em !important;
+  margin-top: 0.7em;
+}
+
+.btnSubmit {
+  border-color: rgb(15, 186, 202);
+}
+
+.btnSubmit:hover {
+  border-color: rgb(15, 186, 202);
+  background-color: rgb(15, 186, 202);
+}
+
+.pageContainer {
+  height: 100vh;
+   width: 100vw;
+   background-position: center;
+   background-size: cover;
+   background-attachment: fixed;
+   background-image: url(/mySiteReloaded/images/background1.jpg);
+   color: white;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 991px) {
+  .textBanner {
+    left: 0rem;
+  }
+  .imgDot {
+    display: none;
+  }
+  .pageTitle {
+    font-size: 1.8em;
+    top: 0;
+    left: 30%;
+  }
+
+  .btnCart {
+    position: absolute;
+    right: 1.4em;
+    bottom: 0.3em;
+  }
+
+  .loginDropdown {
+    position: relative;
+    right: 0;
+  }
 }
